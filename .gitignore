@@ -1,0 +1,6 @@
+stundenplaene/
+stundenpläne/
+*.json
+__pycache__/
+*.pyc
+.venv/
