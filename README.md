@@ -4,24 +4,73 @@ Ein Python-Programm zur Automatisierung des Schulalltags. Es öffnet automatisch
 
 ## 🎯 Funktionen
 
-- **Stundenplan-Export**: Interaktive Eingabe deines Stundenplans mit Fächern, Zeiten und Ressourcen
+- **PDF-Import**: Automatisches Auslesen des Stundenplans aus PDF
+- **GUI-Oberfläche**: Moderne Benutzeroberfläche mit Tabs
 - **Automatischer Modus**: Läuft im Hintergrund und startet Ressourcen automatisch zur richtigen Zeit
 - **Manueller Modus**: Manuelles Öffnen von Ressourcen für einzelne Fächer
-- **JSON-basiert**: Stundenplan wird als JSON gespeichert und kann einfach bearbeitet werden
+- **Wochenübersicht**: Zeigt alle Lektionen der Woche an
+- **Aktivitätslog**: Verfolge alle geöffneten Ressourcen
 
 ## 📋 Voraussetzungen
 
 - Python 3.7 oder höher
 - Windows-Betriebssystem (für automatisches Öffnen von Anwendungen)
+- pdfplumber (wird automatisch installiert)
+
+## 🚀 Installation
+
+1. **Repository klonen oder herunterladen**
+   ```powershell
+   git clone https://github.com/pGebretitios/m122_python_automation.git
+   cd m122_python_automation
+   ```
+
+2. **Virtuelle Umgebung erstellen und aktivieren**
+   ```powershell
+   python -m venv .venv
+   .\.venv\Scripts\Activate.ps1
+   ```
+
+3. **Abhängigkeiten installieren**
+   ```powershell
+   pip install pdfplumber
+   ```
 
 ## 🚀 Verwendung
 
-### 1. Stundenplan erstellen
+### Variante 1: GUI (empfohlen) 🎨
 
-Führe zuerst `export.py` aus, um deinen Stundenplan zu erstellen:
+Starte einfach das GUI:
+
+```powershell
+python gui.py
+```
+
+**Tabs im GUI:**
+- **Heute**: Zeigt heutige Lektionen mit "Ressourcen öffnen" Button
+- **Woche**: Übersicht über alle Wochentage
+- **Automatik**: Aktiviere den automatischen Modus mit Start/Stop Button
+
+### Variante 2: Kommandozeile
+
+#### 1. Stundenplan erstellen
+
+Lege dein PDF in den `stundenplaene/` Ordner und führe aus:
 
 ```powershell
 python export.py
+```
+
+Das Programm:
+- Liest automatisch das PDF aus
+- Zeigt gefundene Fächer an
+- Fragt nach Webseiten und Apps für jedes Fach
+- Speichert alles in `stundenplan.json`
+
+#### 2. Programm starten
+
+```powershell
+python main.py
 ```
 
 Das Programm fragt dich interaktiv nach:
