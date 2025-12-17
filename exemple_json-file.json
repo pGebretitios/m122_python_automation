@@ -1,0 +1,23 @@
+{
+  "entries": [
+    {
+      "name": "Schule morgens",
+      "time": "08:00",
+      "actions": [
+        { "type": "url", "value": "https://example.com/mathe" },
+        { "type": "url", "value": "https://example.com/deutsch" },
+        { "type": "app", "value": "C:\\Program Files\\Mozilla Firefox\\firefox.exe" },
+        { "type": "file", "value": "C:\\Users\\User\\Documents\\Notizen.docx" }
+      ]
+    },
+    {
+      "name": "Nachmittag",
+      "time": "14:00",
+      "actions": [
+        { "type": "url", "value": "https://github.com" },
+        { "type": "app", "value": "/usr/bin/vlc" },
+        { "type": "file", "value": "/home/user/Dokumente/plan.pdf" }
+      ]
+    }
+  ]
+}
