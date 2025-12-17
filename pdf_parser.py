@@ -55,7 +55,7 @@ def parse_timetable_pdf(pdf_path):
                                         "fach": subject,
                                         "start": start,
                                         "ende": ende,
-                                        "ressourcen": {"webseiten": [], "anwendungen": []}
+                                        "ressourcen": {"webseiten": []}
                                     })
                                     seen.add(key)
         

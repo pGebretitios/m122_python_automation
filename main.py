@@ -1,7 +1,6 @@
-"""Stundenplan-Automatisierung: Öffnet Webseiten/Apps zur richtigen Zeit"""
+"""Stundenplan-Automatisierung: Öffnet Webseiten zur richtigen Zeit"""
 import json
 import time
-import subprocess
 import webbrowser
 from datetime import datetime
 
@@ -17,7 +16,7 @@ def load_timetable(filename="stundenplan.json"):
 
 
 def open_resources(lesson):
-    """Öffnet Webseiten und Apps für eine Lektion"""
+    """Öffnet Webseiten für eine Lektion"""
     print(f"\n{'='*50}\n{lesson['fach']} ({lesson['start']}-{lesson['ende']})\n{'='*50}")
     
     # Webseiten
@@ -25,16 +24,6 @@ def open_resources(lesson):
         webbrowser.open(url)
         print(f"[OK] {url}")
         time.sleep(0.5)
-    
-    # Apps
-    apps = {"onenote": "onenote", "word": "winword", "excel": "excel", "powerpoint": "powerpnt",
-            "outlook": "outlook", "teams": "teams", "chrome": "chrome", "firefox": "firefox",
-            "edge": "msedge", "code": "code", "notepad": "notepad", "calculator": "calc"}
-    
-    for app in lesson['ressourcen']['anwendungen']:
-        subprocess.Popen(apps.get(app.lower(), app), shell=True)
-        print(f"[OK] {app}")
-        time.sleep(0.3)
 
 
 def auto_mode(timetable):

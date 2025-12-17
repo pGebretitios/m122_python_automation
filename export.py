@@ -7,13 +7,10 @@ from pdf_parser import parse_timetable_pdf
 
 def get_resources():
     """Fragt Ressourcen für ein Fach ab"""
-    res = {"webseiten": [], "anwendungen": []}
+    res = {"webseiten": []}
     
     while url := input("  URL (Enter=fertig): ").strip():
         res["webseiten"].append(url)
-    
-    while app := input("  App (Enter=fertig): ").strip():
-        res["anwendungen"].append(app)
     
     return res
 
