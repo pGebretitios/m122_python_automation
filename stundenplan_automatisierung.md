@@ -3,7 +3,9 @@
 **Projekt:** Stundenplan-Automatisierung (Python)
 
 **Name:** Pietros, Ajan, Jonathan 
+
 **Klasse:** TI24BLe/BMa
+
 **Datum:** 18.12.2025
 
 ---
