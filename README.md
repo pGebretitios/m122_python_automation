@@ -14,6 +14,7 @@ Ein Python-Programm zur Automatisierung des Schulalltags. Es öffnet automatisch
 - Python 3.8 oder höher
 - Windows 11
 - Webbrowser (Chrome, Firefox, Edge, etc.)
+- Git
 
 ## 📦 Installation
 
