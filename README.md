@@ -1,48 +1,86 @@
 # 📚 Stundenplan-Automatisierung für die Schule
 
-Ein Python-Programm zur Automatisierung des Schulalltags. Es öffnet automatisch alle benötigten Anwendungen und Webseiten zu Beginn jeder Unterrichtsstunde.
+Ein Python-Programm zur Automatisierung des Schulalltags. Es öffnet automatisch alle benötigten Webseiten zu Beginn jeder Unterrichtsstunde.
 
 ## 🎯 Funktionen
 
-- **Stundenplan-Export**: Interaktive Eingabe deines Stundenplans mit Fächern, Zeiten und Ressourcen
-- **Automatischer Modus**: Läuft im Hintergrund und startet Ressourcen automatisch zur richtigen Zeit
-- **Manueller Modus**: Manuelles Öffnen von Ressourcen für einzelne Fächer
+- **PDF-Import**: Importiere deinen Stundenplan direkt aus einem PDF
+- **Automatischer Modus**: Läuft im Hintergrund und öffnet Webseiten automatisch zur richtigen Zeit
+- **Manueller Modus**: Manuelles Öffnen von Webseiten für einzelne Fächer
 - **JSON-basiert**: Stundenplan wird als JSON gespeichert und kann einfach bearbeitet werden
 
 ## 📋 Voraussetzungen
 
-- Python 3.7 oder höher
-- Windows-Betriebssystem (für automatisches Öffnen von Anwendungen)
+- Python 3.8 oder höher
+- Windows 11
+- Webbrowser (Chrome, Firefox, Edge, etc.)
 
-## 🚀 Verwendung
+## 📦 Installation
 
-### 1. Stundenplan erstellen
+### 1. Repository klonen oder herunterladen
 
-Führe zuerst `export.py` aus, um deinen Stundenplan zu erstellen:
+```powershell
+git clone https://github.com/pGebretitios/m122_python_automation.git
+cd m122_python_automation
+```
+
+### 2. Virtuelle Umgebung erstellen (empfohlen)
+
+```powershell
+python -m venv .venv
+.venv\Scripts\activate
+```
+
+### 3. Abhängigkeiten installieren
+
+```powershell
+pip install pdfplumber
+```
+
+## 🚀 Gebrauch
+
+### Schritt-für-Schritt Anleitung
+
+#### 1. PowerShell öffnen
+
+Drücke `Windows-Taste + X` und wähle "Windows PowerShell" oder "Terminal".
+
+#### 2. Zum Projektordner navigieren
+
+```powershell
+cd C:\workdir\m122_python_automation
+```
+
+(Passe den Pfad an, wo du das Projekt gespeichert hast)
+
+#### 3. Virtuelle Umgebung aktivieren
+
+```powershell
+.venv\Scripts\activate
+```
+
+**Wichtig:** Du siehst jetzt `(.venv)` vor deinem Prompt. Das bedeutet, die virtuelle Umgebung ist aktiv!
+
+Beispiel:
+```
+PS C:\workdir\m122_python_automation> .venv\Scripts\activate
+(.venv) PS C:\workdir\m122_python_automation>
+```
+
+#### 4. Stundenplan aus PDF importieren
+
+Lege dein Stundenplan-PDF in den Ordner `stundenplaene/` und führe aus:
 
 ```powershell
 python export.py
 ```
 
-Das Programm fragt dich interaktiv nach:
-- **Fächern** für jeden Wochentag
-- **Zeiten** (Start und Ende jeder Unterrichtsstunde)
-- **Webseiten** (URLs, die geöffnet werden sollen)
-- **Anwendungen** (Programme wie OneNote, Word, etc.)
+Das Programm zeigt alle verfügbaren PDFs an. Wähle dein PDF aus und es wird automatisch geparst. 
+Nach dem Import kannst du für jedes Fach Webseiten hinzufügen.
 
 Die Daten werden in `stundenplan.json` gespeichert.
 
-#### Beispiel-Eingabe:
-```
-Fachname: Mathematik
-Startzeit: 08:00
-Endzeit: 09:45
-URL: https://www.geogebra.org
-Anwendung: onenote
-Anwendung: calculator
-```
-
-### 2. Automatisierung starten
+#### 5. Automatisierung starten
 
 Starte das Hauptprogramm:
 
@@ -51,9 +89,19 @@ python main.py
 ```
 
 Wähle einen Modus:
-- **Modus 1** (Automatisch): Läuft im Hintergrund und öffnet Ressourcen automatisch
-- **Modus 2** (Manuell): Öffne Ressourcen für einzelne Fächer manuell
+- **Modus 1** (Automatisch): Läuft im Hintergrund und öffnet Webseiten automatisch zur richtigen Zeit
+- **Modus 2** (Manuell): Öffne Webseiten für einzelne Fächer manuell
 - **Modus 3** (Anzeige): Zeige nur den heutigen Stundenplan
+
+#### 6. Virtuelle Umgebung deaktivieren
+
+Wenn du fertig bist:
+
+```powershell
+deactivate
+```
+
+Das `(.venv)` verschwindet wieder von deinem Prompt.
 
 ## 📁 JSON-Struktur
 
@@ -61,8 +109,7 @@ Die `stundenplan.json` hat folgende Struktur:
 
 ```json
 {
-  "erstellt_am": "2025-12-03 14:30:00",
-  "version": "1.0",
+  "erstellt_am": "2025-12-17 14:30:00",
   "stundenplan": {
     "Montag": [
       {
@@ -72,10 +119,6 @@ Die `stundenplan.json` hat folgende Struktur:
         "ressourcen": {
           "webseiten": [
             "https://www.geogebra.org"
-          ],
-          "anwendungen": [
-            "onenote",
-            "calculator"
           ]
         }
       }
@@ -86,47 +129,21 @@ Die `stundenplan.json` hat folgende Struktur:
 }
 ```
 
-## 🔧 Unterstützte Anwendungen
-
-Das Programm unterstützt folgende Anwendungen automatisch:
-- `onenote` - Microsoft OneNote
-- `word` - Microsoft Word
-- `excel` - Microsoft Excel
-- `powerpoint` - Microsoft PowerPoint
-- `outlook` - Microsoft Outlook
-- `teams` - Microsoft Teams
-- `chrome` - Google Chrome
-- `firefox` - Mozilla Firefox
-- `edge` - Microsoft Edge
-- `code` - Visual Studio Code
-- `notepad` - Notepad
-- `calculator` - Windows Taschenrechner
-
-Weitere Anwendungen können durch ihren Befehlsnamen hinzugefügt werden.
-
 ## 💡 Tipps
 
-- Nutze den **Beispiel-Stundenplan** in `export.py` (Option 2) zum Testen
 - Der **automatische Modus** prüft alle 30 Sekunden die Uhrzeit
-- Ressourcen werden nur **einmal pro Unterrichtsstunde** geöffnet
+- Webseiten werden nur **einmal pro Unterrichtsstunde** geöffnet
+- Bearbeite `stundenplan.json` direkt mit einem Texteditor wenn du Änderungen vornehmen willst
 - Beende den automatischen Modus mit `Ctrl+C`
 
 ## 📝 Beispiel-Workflow
 
-1. Stundenplan einmalig erstellen: `python export.py`
-2. Programm beim Systemstart automatisch ausführen
-3. Alle Ressourcen werden zur richtigen Zeit automatisch geöffnet
-4. Konzentriere dich auf den Unterricht! 🎓
+1. Stundenplan-PDF in `stundenplaene/` Ordner legen
+2. Virtuelle Umgebung aktivieren: `.venv\Scripts\activate`
+3. `python export.py` ausführen und PDF importieren
+4. Webseiten für jedes Fach hinzufügen
+5. `python main.py` starten und Modus 1 (Automatisch) wählen
+6. Alle Webseiten werden automatisch zur richtigen Zeit geöffnet
+7. Konzentriere dich auf den Unterricht! 🎓
+--- 
 
-## 🛠️ Weiterentwicklung
-
-Mögliche Erweiterungen:
-- Unterstützung für Doppelstunden und Pausen
-- Integration mit Kalender-Apps
-- Benachrichtigungen vor Unterrichtsbeginn
-- Autostart bei Windows-Anmeldung
-- Mehrere Stundenpläne (A/B-Wochen)
-
----
-
-Viel Erfolg mit der Automatisierung! 🚀
