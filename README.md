@@ -76,7 +76,7 @@ Lege dein Stundenplan-PDF in den Ordner `stundenplaene/` und führe aus:
 python export.py
 ```
 
-Das Programm zeigt alle verfügbaren PDFs an. Wähle dein PDF aus und es wird automatisch geparst. 
+Das Programm wählt automatisch das erste PDF aus dem Ordner und parst es. 
 Nach dem Import kannst du für jedes Fach Webseiten hinzufügen.
 
 Die Daten werden in `stundenplan.json` gespeichert.
@@ -110,7 +110,8 @@ Die `stundenplan.json` hat folgende Struktur:
 
 ```json
 {
-  "erstellt_am": "2025-12-17 14:30:00",
+  "erstellt_am": "2025-12-18 10:30:00",
+  "version": "1.0",
   "stundenplan": {
     "Montag": [
       {
@@ -119,13 +120,15 @@ Die `stundenplan.json` hat folgende Struktur:
         "ende": "09:45",
         "ressourcen": {
           "webseiten": [
-            "https://www.geogebra.org"
+            "https://moodle.bzu.ch/course/view.php?id=123"
           ]
         }
       }
     ],
-    "Dienstag": [ ... ],
-    ...
+    "Dienstag": [],
+    "Mittwoch": [],
+    "Donnerstag": [],
+    "Freitag": []
   }
 }
 ```
@@ -146,5 +149,11 @@ Die `stundenplan.json` hat folgende Struktur:
 5. `python main.py` starten und Modus 1 (Automatisch) wählen
 6. Alle Webseiten werden automatisch zur richtigen Zeit geöffnet
 7. Konzentriere dich auf den Unterricht! 🎓
---- 
 
+## 📚 Dokumentation
+
+Für ausführliche Informationen, Testprotokolle und technische Details siehe: **`stundenplan_automatisierung.md`**
+
+---
+
+Viel Erfolg mit der Automatisierung! 🚀
