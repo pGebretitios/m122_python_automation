@@ -33,7 +33,7 @@ Das Projekt wurde als Gruppenarbeit umgesetzt und lokal mit Python 3.8+ auf Wind
 - Windows 11
 - Python-Paket `pdfplumber` muss installiert sein (`pip install pdfplumber`)
 - Stundenplan muss als **textbasiertes PDF** vorliegen
-- Zeiten müssen im Format `HH:MM - HH:MM` oder `HH:MM—HH:MM` vorhanden sein
+- Zeiten müssen im Format `HH:MM - HH:MM` oder `HH:MM-HH:MM` vorhanden sein
 - Internetzugang zum Öffnen der Web-Ressourcen
 - Abgabe als Python-Projekt mit Begleitdokumentation (Markdown)
 
